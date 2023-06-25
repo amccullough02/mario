@@ -11,7 +11,7 @@ import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryUtil.NULL;
 
 public class Window {
-    private int width, height;
+    private int width, height; // Not at all a pointless comment!
     private String title;
     private long glfwWindow;
     private static Window window = null;
