@@ -6,3 +6,5 @@ public class Main {
         window.run();
     }
 }
+
+// Have I managed to get github working properly? :)
