@@ -27,6 +27,7 @@ project.ext.lwjglNatives = "natives-windows"
 
 // MAC OS
 project.ext.lwjglNatives = "natives-macos-arm64"
+// test
 
 dependencies {
     implementation platform("org.lwjgl:lwjgl-bom:$lwjglVersion")
