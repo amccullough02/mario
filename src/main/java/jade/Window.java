@@ -4,8 +4,7 @@ import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.GL;
 
-import java.sql.SQLOutput;
-
+import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryUtil.NULL;
@@ -33,6 +32,14 @@ public class Window {
 
         init();
         loop();
+
+        // Free memory when loop is exited.
+        glfwFreeCallbacks(glfwWindow);
+        glfwDestroyWindow(glfwWindow);
+
+        // Terminate GLFW and the free error callback.
+        glfwTerminate();
+        glfwSetErrorCallback(null).free();
     }
 
     public void init() {
@@ -56,6 +63,13 @@ public class Window {
             throw new IllegalStateException("Failed to create the GLFW window.");
         }
 
+        // :: is just shorthand for lambda expressions e.g (parameter1, ...) -> expression
+        // Listeners.
+        glfwSetCursorPosCallback(glfwWindow, MouseListener::mousePosCallback);
+        glfwSetMouseButtonCallback(glfwWindow, MouseListener::mouseButtonCallback);
+        glfwSetScrollCallback(glfwWindow, MouseListener::mouseScrollCallback);
+        glfwSetKeyCallback(glfwWindow, KeyListener::keyCallback);
+
         // Make the OpenGL context current.
         glfwMakeContextCurrent(glfwWindow);
         // Enable v-sync.
@@ -77,7 +91,7 @@ public class Window {
             // Poll events.
             glfwPollEvents();
 
-            glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+            glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT);
 
             glfwSwapBuffers(glfwWindow);
