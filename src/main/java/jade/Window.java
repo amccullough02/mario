@@ -15,9 +15,7 @@ public class Window {
     private String title;
     private long glfwWindow;
     public float r, g, b, a;
-    private boolean fadeToBlack = false;
     private static Window window = null;
-    private static int currentSceneIndex = -1;
     private static Scene currentScene;
     private Window() {
         this.width = 1920;
@@ -137,5 +135,4 @@ public class Window {
             beginTime = endTime;
         }
     }
-
 }
