@@ -15,6 +15,7 @@ import static org.lwjgl.opengl.GL20.glGetProgramInfoLog;
 public class Shader {
 
     private int shaderProgramID;
+    private boolean beingUsed = false;
 
     private String vertexSource;
     private String fragmentSource;
@@ -105,18 +106,22 @@ public class Shader {
     }
 
     public void use() {
-        // Bind shader program.
-        glUseProgram(shaderProgramID);
+        if (!beingUsed) {
+            // Bind shader program.
+            glUseProgram(shaderProgramID);
+            beingUsed = true;
+        }
     }
 
     public void detach() {
         glUseProgram(0);
+        beingUsed = false;
     }
 
     public void uploadMat4f(String varName, Matrix4f mat4) {
         int varLocation = glGetUniformLocation(shaderProgramID, varName);
         FloatBuffer matBuffer = BufferUtils.createFloatBuffer(16);
-        mat4.get(matBuffer);
+        mat4.get(matBuffer); // Matrices get flattened to 1D-array, hence 4x4 => 16.
         glUniformMatrix4fv(varLocation, false, matBuffer);
     }
 
