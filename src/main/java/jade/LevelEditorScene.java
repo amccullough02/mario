@@ -17,10 +17,10 @@ public class LevelEditorScene extends Scene {
     private int vertexID, fragmentID, shaderProgram;
     private float[] vertexArray = {
             // position (x,y,z)                // colour
-             100.5f, -0.5f, 0.0f,                1.0f, 0.0f, 0.0f, 1.0f, // Bottom right. 0
-            -0.5f,  100.5f, 0.0f,                0.0f, 1.0f, 0.0f, 1.0f, // Top left.     1
-             100.5f,  100.5f, 0.0f,                0.0f, 0.0f, 1.0f, 1.0f, // Top right.    2
-            -0.5f, -0.5f, 0.0f,                1.0f, 1.0f, 0.0f, 1.0f, // Bottom left.  3
+             100.5f, -0.5f, 0.0f,                1.0f, 0.0f, 0.0f, 1.0f,    1, 0,  // Bottom right. 0
+            -0.5f,  100.5f, 0.0f,                0.0f, 1.0f, 0.0f, 1.0f,    0, 1,  // Top left.     1
+             100.5f,  100.5f, 0.0f,              0.0f, 0.0f, 1.0f, 1.0f,    1, 1,  // Top right.    2
+            -0.5f, -0.5f, 0.0f,                  1.0f, 1.0f, 0.0f, 1.0f,    0, 0   // Bottom left.  3
     };
 
     // IMPORTANT: Must be in counter-clockwise order.
@@ -70,17 +70,21 @@ public class LevelEditorScene extends Scene {
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, eboId);
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, elementBuffer, GL_STATIC_DRAW);
 
-        // Add the vertex attribute pointers (3 pos, 4 color).
+        // Add the vertex attribute pointers (3 pos, 4 color, 2 for texture co-ords).
         int positionSize = 3;
         int colourSize = 4;
-        int floatSizeBytes = 4;
-        int vertexSizeBytes = (positionSize + colourSize) * floatSizeBytes;
+        int uvSize = 2;
+        int vertexSizeBytes = (positionSize + colourSize + uvSize) * Float.BYTES;
         glVertexAttribPointer(0, positionSize, GL_FLOAT, false, vertexSizeBytes, 0);
         glEnableVertexAttribArray(0);
 
         glVertexAttribPointer(1, colourSize, GL_FLOAT, false, vertexSizeBytes,
-                positionSize * floatSizeBytes);
+                positionSize * Float.BYTES);
         glEnableVertexAttribArray(1);
+
+        glVertexAttribPointer(2, uvSize, GL_FLOAT, false,
+                vertexSizeBytes, (positionSize+colourSize*Float.BYTES));
+        glEnableVertexAttribArray(2);
     }
 
     @Override
