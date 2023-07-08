@@ -1,15 +1,16 @@
 package jade;
 
-
+import java.util.ArrayList;
 import java.util.List;
 
 public class GameObject {
 
     private String name;
-    private List<Component> components;
+    private List<Component> components = new ArrayList<>();
 
     public GameObject(String name) {
         this.name = name;
+        this.components = new ArrayList<>();
     }
 
     public <T extends Component> T getComponent(Class<T> componentClass) {
