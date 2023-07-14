@@ -81,7 +81,7 @@ public class RenderBatch {
         }
     }
 
-    private void render() {
+    public void render() {
         // For now, we will re-buffer all data every frame (not optimal).
         glBindBuffer(GL_ARRAY_BUFFER, vboID);
         glBufferSubData(GL_ARRAY_BUFFER, 0, vertices);
@@ -158,6 +158,10 @@ public class RenderBatch {
         elements[offSetArrayIndex + 3] = offset;
         elements[offSetArrayIndex + 4] = offset + 2;
         elements[offSetArrayIndex + 5] = offset + 1;
+    }
+
+    public boolean hasRoom() {
+        return this.hasRoom;
     }
 
 }
