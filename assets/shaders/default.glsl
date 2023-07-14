@@ -2,7 +2,6 @@
 #version 330 core
 layout (location=0) in vec3 aPos;
 layout (location=1) in vec4 aColor;
-layout (location=2) in vec2 aTexCoords;
 
 uniform mat4 uProjection;
 uniform mat4 uView;
@@ -17,9 +16,6 @@ void main()
 
 #type fragment
 #version 330 core
-
-uniform float uTime;
-uniform sampler2D TEX_SAMPLER;
 
 in vec4 fColor;
 
