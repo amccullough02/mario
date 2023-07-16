@@ -4,6 +4,9 @@ import org.joml.Matrix4f;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 
+/**
+ * Class handles the projection of the 3D world space into 2D screen space.
+ * */
 public class Camera {
     private Matrix4f projectionMatrix, viewMatrix;
     public Vector2f position;

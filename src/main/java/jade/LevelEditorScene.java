@@ -5,6 +5,9 @@ import org.joml.Vector2f;
 import org.joml.Vector4f;
 import util.AssetPool;
 
+/**
+ * Scene used to create and edit levels.
+ */
 public class LevelEditorScene extends Scene {
 
     public LevelEditorScene() {

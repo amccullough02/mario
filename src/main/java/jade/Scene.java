@@ -5,6 +5,9 @@ import renderer.Renderer;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Abstract scene class that holds the basic properties of every scene.
+ */
 public abstract class Scene {
 
     protected Renderer renderer = new Renderer();

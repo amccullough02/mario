@@ -3,6 +3,10 @@ package jade;
 import static org.lwjgl.glfw.GLFW.GLFW_PRESS;
 import static org.lwjgl.glfw.GLFW.GLFW_RELEASE;
 
+
+/**
+ * Wrapper for GLFW key logic.
+ */
 public class KeyListener {
 
     private static KeyListener instance;

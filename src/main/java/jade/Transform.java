@@ -2,6 +2,9 @@ package jade;
 
 import org.joml.Vector2f;
 
+/**
+ * Handles OPENGL transformations (translation and scale).
+ */
 public class Transform {
 
     public Vector2f position;

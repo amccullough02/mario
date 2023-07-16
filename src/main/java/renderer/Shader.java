@@ -12,6 +12,9 @@ import static org.lwjgl.opengl.GL11.GL_FALSE;
 import static org.lwjgl.opengl.GL20.*;
 import static org.lwjgl.opengl.GL20.glGetProgramInfoLog;
 
+/**
+ * Abstracts the lengthy process of creating a shader.
+ */
 public class Shader {
 
     private int shaderProgramID;

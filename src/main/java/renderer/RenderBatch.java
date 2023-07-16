@@ -12,6 +12,9 @@ import static org.lwjgl.opengl.GL20.*;
 import static org.lwjgl.opengl.GL30.glBindVertexArray;
 import static org.lwjgl.opengl.GL30.glGenVertexArrays;
 
+/**
+ * Allows objects to rendered in batches of an arbitrary size, enabling improved performance.
+ */
 public class RenderBatch {
     // Vertex.
     // ======
