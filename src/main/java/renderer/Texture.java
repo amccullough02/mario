@@ -9,6 +9,9 @@ import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.stb.STBImage.stbi_image_free;
 import static org.lwjgl.stb.STBImage.stbi_load;
 
+/**
+ * Abstraction for loading in images using OPENGL.
+ */
 public class Texture {
 
     private String filepath;

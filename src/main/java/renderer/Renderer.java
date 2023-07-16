@@ -6,6 +6,9 @@ import jade.GameObject;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Wrapper for the RenderBatch class to handle if the current batch is full, or if a new one is required.
+ */
 public class Renderer {
     private final int MAX_BATCH_SIZE = 1000;
     private List<RenderBatch> batches;

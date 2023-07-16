@@ -3,6 +3,9 @@ package jade;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A game object contains a name and a list of components allowing for shared properties without the use of inheritance.
+ */
 public class GameObject {
 
     private String name;

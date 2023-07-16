@@ -3,6 +3,10 @@ package jade;
 import static org.lwjgl.glfw.GLFW.GLFW_PRESS;
 import static org.lwjgl.glfw.GLFW.GLFW_RELEASE;
 
+
+/**
+ * Wrapper for GLFW mouse logic.
+ */
 public class MouseListener {
     private static MouseListener instance; // Mouse singleton.
     private double scrollX, scrollY;
