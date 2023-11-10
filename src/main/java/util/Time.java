@@ -1,5 +1,8 @@
 package util;
 
+/**
+ * Class acts as an abstract wrapper for Java's handling of time.
+ */
 public class Time {
     public static float timeStarted = System.nanoTime();
 

@@ -2,6 +2,9 @@ package components;
 
 import jade.Component;
 
+/**
+ * Class responsible for the rendering of fonts, inherits from component.
+ */
 public class FontRenderer extends Component {
 
     @Override

@@ -5,6 +5,9 @@ import org.joml.Vector2f;
 import org.joml.Vector4f;
 import renderer.Texture;
 
+/**
+ * Renders sprites onto the world space.
+ */
 public class SpriteRenderer extends Component {
 
     private Vector4f color;

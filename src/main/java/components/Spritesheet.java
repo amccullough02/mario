@@ -6,6 +6,9 @@ import renderer.Texture;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Utilizes a single image and chops it up into several sprites.
+ */
 public class Spritesheet {
 
     private Texture texture;

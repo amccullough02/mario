@@ -3,6 +3,9 @@ package components;
 import org.joml.Vector2f;
 import renderer.Texture;
 
+/**
+ * Represents a 2D image, handling the projection of an image onto a vector.
+ */
 public class Sprite {
 
     private Texture texture;
