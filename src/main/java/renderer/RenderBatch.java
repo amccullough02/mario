@@ -19,7 +19,7 @@ import static org.lwjgl.opengl.GL30.glGenVertexArrays;
 /**
  * Allows objects to rendered in batches of an arbitrary size, enabling improved performance.
  */
-public class RenderBatch {
+public class RenderBatch implements Comparable<RenderBatch> {
     // Vertex.
     // ======
     // Pos           Color                       Tex coords    Text id
@@ -46,12 +46,14 @@ public class RenderBatch {
     private int vaoID, vboID;
     private int maxBatchSize;
     private Shader shader;
+    private int zIndex;
 
-    public RenderBatch(int maxBatchSize) {
+    public RenderBatch(int maxBatchSize, int zIndex) {
         shader = AssetPool.getShader("assets/shaders/default.glsl");
         shader.compileAndLink();
         this.sprites = new SpriteRenderer[maxBatchSize];
         this.maxBatchSize = maxBatchSize;
+        this.zIndex = zIndex;
 
         vertices = new float[maxBatchSize * 4 * VERTEX_SIZE];
 
@@ -238,4 +240,12 @@ public class RenderBatch {
         return this.textures.contains(tex);
     }
 
+    public int getzIndex() {
+        return this.zIndex;
+    }
+
+    @Override
+    public int compareTo(RenderBatch renderBatch) {
+        return Integer.compare(this.zIndex, renderBatch.zIndex);
+    }
 }
